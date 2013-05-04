@@ -10,6 +10,7 @@
 
 @implementation PlayingCard
 
+// synthesize suit because we implemented both the getter and setter
 @synthesize suit = _suit;
 
 // ---------- Instance Methods ---------- //
@@ -23,6 +24,46 @@
 - (NSString *)contents {
     // return a string representation of this PlayingCard
     return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
+}
+
+#define RANK_SCORE 4
+#define SUIT_SCORE 1
+#define NO_MATCH_PENALTY -2
+
+/*
+ * This method is used to match this particluar card with an array
+ * of cards. The scoring scheme used is the following:
+ * - Matched suit with any card > SUIT_SCORE points
+ * - Matched rank with any card > RANK_SCORE points
+ * - Nothing has been matched   > NO_MATCH_PENALTY point penalty
+ */
+- (int)match:(NSArray *)cardsToBeMatched {
+    // a variable to keep track of the score
+    int score = 0;
+    // for each element in the array cardsToBeMatched
+    for (id element in cardsToBeMatched) {
+        // if the element is a PlayingCard
+        if ([element isKindOfClass:[PlayingCard class]]) {
+            // create a PlayingCard object
+            PlayingCard *card = element;
+            // if the rank is the same
+            if (self.rank == card.rank) {
+                // increase the score as per the scoring scheme
+                score += RANK_SCORE;
+            // if the suit is the same
+            } else if ([self.suit isEqualToString:card.suit]) {
+                // increase the score as per the scoring scheme
+                score += SUIT_SCORE;
+            }
+        }
+    }
+    // if the user didn't match any thing
+    if (score == 0) {
+        // subtract a score penalty
+        score += NO_MATCH_PENALTY;
+    }
+    // return the score
+    return score;
 }
 
 // ---------- Class Methods ---------- //
