@@ -19,6 +19,8 @@
 @property (nonatomic) int flipCount;
 // a deck to pull cards from
 @property (strong, nonatomic) PlayingCardDeck *deck;
+// an outlet collection array that contains all the card buttons
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @end
 
 @implementation CardGameViewController
@@ -27,17 +29,11 @@
 
 /*
  * This method gets called when the user flips a card. It sets the card's selected
- * state appropriately, and then if needed, draws a card from the deck and sets that
- * card's contents to the button's selected state title. It also inreases the flip count.
+ * state appropriately, and also inreases the flip count.
  */
 - (IBAction)flipCard:(UIButton *)sender {
     // flip the selected state of the button
     sender.selected = !sender.isSelected;
-    // if the button is face up
-    if (sender.isSelected) {
-        // set the button's title by drawing a random card from the deck
-        [sender setTitle:[self.deck drawRandomCard].contents forState:UIControlStateSelected];
-    }
     // increase the flip count
     self.flipCount++;
 }
@@ -52,6 +48,17 @@
         _deck = [[PlayingCardDeck alloc] init];
     }
     return _deck;
+}
+
+/*
+ * The setter for the cardButtons outlet collection.
+ */
+- (void)setCardButtons:(NSArray *)cardButtons {
+    _cardButtons = cardButtons;
+    for (UIButton *cardButton in cardButtons) {
+        Card *card = [self.deck drawRandomCard];
+        [cardButton setTitle:card.contents forState:UIControlStateSelected];
+    }
 }
 
 /*

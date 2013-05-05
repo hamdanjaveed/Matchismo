@@ -288,10 +288,27 @@
                     <connections>
                         <outlet property="flipCountLabel" destination="qSJ-4i-1Ww" id="1xZ-gS-UAd"/>
                         <outlet property="lastActionLabel" destination="eMq-qF-6f4" id="YZe-Ws-cGv"/>
+                        <outletCollection property="cardButtons" destination="Ia6-ih-s34" id="pmJ-ai-pD5"/>
+                        <outletCollection property="cardButtons" destination="Goh-G7-5FO" id="sFb-KT-duz"/>
+                        <outletCollection property="cardButtons" destination="4lK-Ix-c5C" id="iaL-WR-I1h"/>
+                        <outletCollection property="cardButtons" destination="CO8-Dv-C3m" id="cJY-eP-Z91"/>
+                        <outletCollection property="cardButtons" destination="XhT-N7-EnP" id="T2e-5M-KEc"/>
+                        <outletCollection property="cardButtons" destination="X8o-7i-ikG" id="qjs-GL-cqZ"/>
+                        <outletCollection property="cardButtons" destination="79t-oX-gbW" id="HTD-tx-fek"/>
+                        <outletCollection property="cardButtons" destination="9T0-h5-0Kv" id="qBC-Yl-hy4"/>
+                        <outletCollection property="cardButtons" destination="MRn-Ti-GnR" id="POB-mX-PgK"/>
+                        <outletCollection property="cardButtons" destination="MX9-rK-CXn" id="eCy-HM-64e"/>
+                        <outletCollection property="cardButtons" destination="P9X-MN-Uni" id="NVo-5P-7aF"/>
+                        <outletCollection property="cardButtons" destination="zJe-IO-5ZY" id="MaM-Dl-ffO"/>
+                        <outletCollection property="cardButtons" destination="afc-eG-9ua" id="rUf-5G-Kaf"/>
+                        <outletCollection property="cardButtons" destination="T8N-af-pe4" id="AkR-93-VLi"/>
+                        <outletCollection property="cardButtons" destination="AhE-4F-6Yt" id="9u7-1f-Stk"/>
+                        <outletCollection property="cardButtons" destination="h9z-1A-3ql" id="fo4-AO-tJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="173"/>
         </scene>
     </scenes>
     <classes>
@@ -301,6 +318,7 @@
                 <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="flipCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lastActionLabel" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
