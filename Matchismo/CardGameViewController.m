@@ -57,6 +57,15 @@
         [cardButton setTitle:card.contents forState:UIControlStateSelected];
         // set the title of the cardButton for the disabled state as well
         [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        // if the card is face down and in play
+        if (!card.isFaceUp && card.isPlayable) {
+            // set the image of the cardButton for the normal state
+            UIImage *cardBackImage = [UIImage imageNamed:@"Card Back.jpeg"];
+            [cardButton setImage:cardBackImage forState:UIControlStateNormal];
+            cardButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
+        } else {
+            [cardButton setImage:nil forState:UIControlStateNormal];
+        }
         // if the card is faceUp, then set the cardButton to be selected
         cardButton.selected = card.isFaceUp;
         // if the card is un-playable, then set the cardButton to be disabled

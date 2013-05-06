@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC317442173759400079DAAF /* Card Back.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AC317441173759400079DAAF /* Card Back.jpeg */; };
 		AC4A32A6172C9DF100C7A385 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32A5172C9DF100C7A385 /* Card.m */; };
 		AC4A32AA172C9E2C00C7A385 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32A9172C9E2C00C7A385 /* Deck.m */; };
 		AC4A32AD172CA2DD00C7A385 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32AC172CA2DD00C7A385 /* PlayingCard.m */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC317441173759400079DAAF /* Card Back.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Card Back.jpeg"; sourceTree = "<group>"; };
 		AC4A32A4172C9DF100C7A385 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = Model/Card.h; sourceTree = "<group>"; };
 		AC4A32A5172C9DF100C7A385 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		AC4A32A8172C9E2C00C7A385 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		AC7DD0501737545800F2D9DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC317441173759400079DAAF /* Card Back.jpeg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		ACC38862172C606C0077F7D6 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		ACC38874172C606C0077F7D6 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
+				AC7DD0501737545800F2D9DC /* Resources */,
 				ACC3887D172C606D0077F7D6 /* CardGameAppDelegate.h */,
 				ACC3887E172C606D0077F7D6 /* CardGameAppDelegate.m */,
 				ACC38886172C606D0077F7D6 /* MainStoryboard.storyboard */,
@@ -197,6 +208,7 @@
 				ACC38883172C606D0077F7D6 /* Default@2x.png in Resources */,
 				ACC38885172C606D0077F7D6 /* Default-568h@2x.png in Resources */,
 				ACC38888172C606D0077F7D6 /* MainStoryboard.storyboard in Resources */,
+				AC317442173759400079DAAF /* Card Back.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
