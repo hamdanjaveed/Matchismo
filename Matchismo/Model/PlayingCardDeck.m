@@ -1,6 +1,6 @@
 //
 //  PlayingCardDeck.m
-//  Matchismo
+//  ;
 //
 //  Created by Hamdan Javeed on 2013-04-27.
 //  Copyright (c) 2013 Hamdan Javeed. All rights reserved.
@@ -17,6 +17,8 @@
         for (NSString *suit in [PlayingCard validSuits]) {
             for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
                 PlayingCard *card = [[PlayingCard alloc] init];
+                card.playable = YES;
+                card.faceUp = NO;
                 card.rank = rank;
                 card.suit= suit;
                 [self addCard:card atTop:YES];

@@ -27,15 +27,14 @@
 }
 
 #define RANK_SCORE 4
-#define SUIT_SCORE 1
-#define NO_MATCH_PENALTY -2
+#define SUIT_SCORE 2
 
 /*
  * This method is used to match this particluar card with an array
  * of cards. The scoring scheme used is the following:
  * - Matched suit with any card > SUIT_SCORE points
  * - Matched rank with any card > RANK_SCORE points
- * - Nothing has been matched   > NO_MATCH_PENALTY point penalty
+ * - Nothing has been matched   > leave score at 0
  */
 - (int)match:(NSArray *)cardsToBeMatched {
     // a variable to keep track of the score
@@ -56,11 +55,6 @@
                 score += SUIT_SCORE;
             }
         }
-    }
-    // if the user didn't match any thing
-    if (score == 0) {
-        // subtract a score penalty
-        score += NO_MATCH_PENALTY;
     }
     // return the score
     return score;

@@ -11,6 +11,7 @@
 		AC4A32AA172C9E2C00C7A385 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32A9172C9E2C00C7A385 /* Deck.m */; };
 		AC4A32AD172CA2DD00C7A385 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32AC172CA2DD00C7A385 /* PlayingCard.m */; };
 		AC4A32B0172CACA900C7A385 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4A32AF172CACA900C7A385 /* PlayingCardDeck.m */; };
+		ACA497501736CD2600A08D17 /* CardMatchingGameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA4974F1736CD2600A08D17 /* CardMatchingGameLogic.m */; };
 		ACC3886F172C606C0077F7D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3886E172C606C0077F7D6 /* UIKit.framework */; };
 		ACC38871172C606C0077F7D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC38870172C606C0077F7D6 /* Foundation.framework */; };
 		ACC38873172C606C0077F7D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC38872172C606C0077F7D6 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 		AC4A32AC172CA2DD00C7A385 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCard.m; path = Model/PlayingCard.m; sourceTree = "<group>"; };
 		AC4A32AE172CACA900C7A385 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayingCardDeck.h; path = Model/PlayingCardDeck.h; sourceTree = "<group>"; };
 		AC4A32AF172CACA900C7A385 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayingCardDeck.m; path = Model/PlayingCardDeck.m; sourceTree = "<group>"; };
+		ACA4974E1736CD2600A08D17 /* CardMatchingGameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardMatchingGameLogic.h; path = Model/CardMatchingGameLogic.h; sourceTree = "<group>"; };
+		ACA4974F1736CD2600A08D17 /* CardMatchingGameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardMatchingGameLogic.m; path = Model/CardMatchingGameLogic.m; sourceTree = "<group>"; };
 		ACC3886B172C606C0077F7D6 /* Matchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC3886E172C606C0077F7D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACC38870172C606C0077F7D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +71,8 @@
 		AC4A32A7172C9E0A00C7A385 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ACA4974E1736CD2600A08D17 /* CardMatchingGameLogic.h */,
+				ACA4974F1736CD2600A08D17 /* CardMatchingGameLogic.m */,
 				AC4A32A4172C9DF100C7A385 /* Card.h */,
 				AC4A32A5172C9DF100C7A385 /* Card.m */,
 				AC4A32A8172C9E2C00C7A385 /* Deck.h */,
@@ -209,6 +214,7 @@
 				AC4A32AA172C9E2C00C7A385 /* Deck.m in Sources */,
 				AC4A32AD172CA2DD00C7A385 /* PlayingCard.m in Sources */,
 				AC4A32B0172CACA900C7A385 /* PlayingCardDeck.m in Sources */,
+				ACA497501736CD2600A08D17 /* CardMatchingGameLogic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -282,12 +282,20 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score : 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gOm-Ef-Ibd">
+                                <rect key="frame" x="185" y="419" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="qSJ-4i-1Ww" id="1xZ-gS-UAd"/>
                         <outlet property="lastActionLabel" destination="eMq-qF-6f4" id="YZe-Ws-cGv"/>
+                        <outlet property="scoreLabel" destination="gOm-Ef-Ibd" id="qyc-Ci-ddK"/>
                         <outletCollection property="cardButtons" destination="Ia6-ih-s34" id="pmJ-ai-pD5"/>
                         <outletCollection property="cardButtons" destination="Goh-G7-5FO" id="sFb-KT-duz"/>
                         <outletCollection property="cardButtons" destination="4lK-Ix-c5C" id="iaL-WR-I1h"/>
@@ -308,20 +316,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="249" y="173"/>
+            <point key="canvasLocation" x="162" y="181"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CardGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="flipCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lastActionLabel" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cardButtons" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
