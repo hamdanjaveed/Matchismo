@@ -70,6 +70,18 @@
     self.lastActionLabel.text = self.game.lastAction;
 }
 
+/*
+ * User requested to re-deal, so reset the game logic.
+ */
+- (IBAction)deal {
+    // set game logic to nil, so that it gets initialized again
+    self.game = nil;
+    // set the flip count to 0
+    self.flipCount = 0;
+    // reset the ui (this will re-initialize the game logic)
+    [self updateUI];
+}
+
 // ---------- Getters and Setters ---------- //
 
 /*
