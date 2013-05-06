@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSMutableArray *cards;
 // the property to hold the score, is not readonly in this class
 @property (nonatomic) int score;
+// a property to hold the last action, is not readonly in this class
+@property (strong, nonatomic) NSString *lastAction;
 @end
 
 @implementation CardMatchingGameLogic
@@ -78,6 +80,8 @@
     if (card.isPlayable) {
         // if the card is face down, and about to be flipped to face up
         if (!card.isFaceUp) {
+            // a BOOL to check if other cards are face up
+            BOOL otherCardsAreFaceUp = false;
             // for each card in the game
             for (Card *otherCard in self.cards) {
                 // if the card is face up and is in play
@@ -90,19 +94,37 @@
                         // set both cards to be un-playable
                         otherCard.playable = NO;
                         card.playable = NO;
-                        // increment the score by match score multiplied by MATCH_BONUS
-                        self.score += matchScore * MATCH_BONUS;
+                        // calculate the score this flip
+                        int scoreThisFlip = matchScore * MATCH_BONUS;
+                        // increment the score by scoreThisFlip
+                        self.score += scoreThisFlip;
+                        // set the lastAction message
+                        self.lastAction = [NSString stringWithFormat:@"Matched %@ with %@ for %d points!", card.contents, otherCard.contents, scoreThisFlip];
+                        
                     // if a match was not found
                     } else {
                         // flip the other card so it's face down
                         otherCard.faceUp = NO;
-                        self.score -= NO_MATCH_PENALTY;
+                        // calculate the scoreThisFlip
+                        int scoreThisFlip = -NO_MATCH_PENALTY;
+                        // decrement the score accordingly
+                        self.score += scoreThisFlip;
+                        // set the lastAction message
+                        self.lastAction = [NSString stringWithFormat:@"%@ and %@ don't match! %d point penalty!", card.contents, otherCard.contents, -scoreThisFlip];
                     }
+                    // set otherCardsAreFaceUp to true
+                    otherCardsAreFaceUp = true;
+                    // break from the loop
                     break;
                 }
             }
             // add a cost for flipping a card
             self.score -= FLIP_COST;
+            // if no action happened
+            if (!otherCardsAreFaceUp) {
+                // set the lastAction message
+                self.lastAction = [NSString stringWithFormat:@"Flipped up %@", card.contents];
+            }
         }
         // flip the card
         card.faceUp = !card.faceUp;
@@ -122,6 +144,19 @@
     }
     // return _cards
     return _cards;
+}
+
+/*
+ * Lazily instantiate lastAction.
+ */
+- (NSString *)lastAction {
+    // if _lastAction has not been initialized
+    if (!_lastAction) {
+        // initialize _lastAction
+        _lastAction = [[NSString alloc] init];
+    }
+    // return _lastAction
+    return _lastAction;
 }
 
 @end

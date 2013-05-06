@@ -32,4 +32,7 @@
 // a property to hold the user's score, is readonly
 @property (nonatomic, readonly) int score;
 
+// a property to hold the lastAction, is readonly
+@property (nonatomic, readonly) NSString *lastAction;
+
 @end

@@ -66,6 +66,8 @@
     }
     // update the score label
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+    // update the lastAction label
+    self.lastActionLabel.text = self.game.lastAction;
 }
 
 // ---------- Getters and Setters ---------- //
