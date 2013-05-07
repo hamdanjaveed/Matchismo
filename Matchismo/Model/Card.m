@@ -37,4 +37,14 @@
     return score;
 }
 
+- (NSString *)description {
+    return [self contents];
+}
+
+// ---------- Getters and Setters ---------- //
+
+- (NSString *)contents {
+    return @"NO CONTENT SET";
+}
+
 @end

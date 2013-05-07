@@ -11,4 +11,27 @@
 
 @implementation SetCardDeck
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        for (int i = 1; i <= [SetCard maxNumber]; i++) {
+            for (NSString *symbol in [SetCard symbols]) {
+                for (NSString *shading in [SetCard shading]) {
+                    for (NSDictionary *color in [SetCard colors]) {
+                        SetCard *card = [[SetCard alloc] init];
+                        card.playable = YES;
+                        card.faceUp = NO;
+                        [card setNumber:i];
+                        [card setSymbol:symbol];
+                        [card setShading:shading];
+                        [card setColor:color];
+                        [self addCard:card atTop:YES];
+                    }
+                }
+            }
+        }
+    }
+    return self;
+}
+
 @end
