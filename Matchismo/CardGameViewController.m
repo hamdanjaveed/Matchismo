@@ -7,23 +7,17 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
-#import "CardMatchingGameLogic.h"
 
 @interface CardGameViewController ()
 // a label to display the number of times the user has fliped a card
 @property (weak, nonatomic) IBOutlet UILabel *flipCountLabel;
 // a label to display the last action
 @property (weak, nonatomic) IBOutlet UILabel *lastActionLabel;
+// a label that displays the user's current score
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 // a variable to hold the flip count (a flip is defined as both a flip up and down)
 @property (nonatomic) int flipCount;
-// an outlet collection array that contains all the card buttons
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-// a CardMatchingGameLogic property, to hold the logic for the game
-@property (strong, nonatomic) CardMatchingGameLogic *game;
-// a label that displays the user's current score
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @end
 
 @implementation CardGameViewController
@@ -49,30 +43,6 @@
  * state.
  */
 - (void)updateUI {
-    // for each cardButton in cardButtons
-    for (UIButton *cardButton in self.cardButtons) {
-        // get the corresponding card object from the game logic
-        Card *card = [self.game getCardAtIndex:[self.cardButtons indexOfObject:cardButton]];
-        // set the title of the cardButton
-        [cardButton setTitle:card.contents forState:UIControlStateSelected];
-        // set the title of the cardButton for the disabled state as well
-        [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
-        // if the card is face down and in play
-        if (!card.isFaceUp && card.isPlayable) {
-            // set the image of the cardButton for the normal state
-            UIImage *cardBackImage = [UIImage imageNamed:@"Card Back.jpeg"];
-            [cardButton setImage:cardBackImage forState:UIControlStateNormal];
-            cardButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5);
-        } else {
-            [cardButton setImage:nil forState:UIControlStateNormal];
-        }
-        // if the card is faceUp, then set the cardButton to be selected
-        cardButton.selected = card.isFaceUp;
-        // if the card is un-playable, then set the cardButton to be disabled
-        cardButton.enabled = card.playable;
-        // set the card's alpha accordingly
-        cardButton.alpha = card.playable ? 1.0 : 0.3;
-    }
     // update the score label
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     // update the lastAction label
@@ -117,11 +87,11 @@
  * a card count corresponding to the number of elements in the outlet collection
  * that contains the card buttons, and a new PlayingCardDeck.
  */
-- (CardMatchingGameLogic *)game {
+- (CardGameLogic *)game {
     // if _game has not been initialized
     if (!_game) {
         // initialize the game with self.cardButtons.count many cards and a PlayingCardDeck
-        _game = [[CardMatchingGameLogic alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
+        _game = [[CardGameLogic alloc] initWithCardCount:self.cardButtons.count usingDeck:[[Deck alloc] init]];
     }
     // return _game
     return _game;
