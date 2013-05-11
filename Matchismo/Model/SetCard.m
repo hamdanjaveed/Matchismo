@@ -14,6 +14,42 @@
 
 // ----------  Instance Methods   ---------- //
 
+- (int)match:(NSArray *)cardsToBeMatched {
+    int score = 0;
+    if ([cardsToBeMatched count] == 2) {
+        NSMutableArray *colors = [[NSMutableArray alloc] init];
+        NSMutableArray *symbols = [[NSMutableArray alloc] init];
+        NSMutableArray *shadings = [[NSMutableArray alloc] init];
+        NSMutableArray *numbers = [[NSMutableArray alloc] init];
+        [colors addObject:self.color];
+        [symbols addObject:self.symbol];
+        [shadings addObject:self.shading];
+        [numbers addObject:@(self.number)];
+        for (id otherCard in cardsToBeMatched) {
+            if ([otherCard isKindOfClass:[SetCard class]]) {
+                SetCard *card = (SetCard *)otherCard;
+                if (![colors containsObject:card.color]) {
+                    [colors addObject:card.color];
+                }
+                if (![colors containsObject:card.symbol]) {
+                    [colors addObject:card.symbol];
+                }
+                if (![colors containsObject:card.shading]) {
+                    [colors addObject:card.shading];
+                }
+                if (![colors containsObject:@(card.number)]) {
+                    [colors addObject:@(card.number)];
+                }
+                if ((colors.count == 1 || colors.count == 3) && (symbols.count == 1 || symbols.count == 3) && (shadings.count == 1 || shadings.count == 3) &&
+                    (numbers.count == 1 || numbers.count == 3)) {
+                    score += 4;
+                }
+            }
+        }
+    }
+    return score;
+}
+
 // ----------    Class Methods    ---------- //
 
 + (NSUInteger)maxNumber {

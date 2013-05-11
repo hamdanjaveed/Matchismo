@@ -175,9 +175,9 @@
 		AC9080E8173853310062359E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC671C5A1738AA0900888F69 /* Super */,
-				AC671C5B1738AA0D00888F69 /* Set */,
 				AC671C5C1738AA1100888F69 /* Match */,
+				AC671C5B1738AA0D00888F69 /* Set */,
+				AC671C5A1738AA0900888F69 /* Super */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
